@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/utility.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+
+<body>
+<header class="header">
+    <div class="header-left">
+        <img src="images/download.svg" alt="logo">
+    </div>
+
+    <div class="header-right">
+        <button class="login-btn" onclick="goLogin(event)">Log In</button>
+    </div>
+</header>
+
+<div class="signup-wrapper">
+    <form class="signup-form" id="signupForm">
+
+        <h1 class="signup-title">Create Account</h1>
+
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your Name">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your Email">
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your Password" autocomplete="new-password">
+        </div>
+
+        <button type="submit" class="signup-btn">Sign Up</button>
+
+    </form>
+</div>
+
+  
+    <script src="app.js"></script>
+</body>
+
+</html>

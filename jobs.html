@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Job Tracker</title>
+  <link rel="stylesheet" href="styles/job.css" />
+       <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+  <h1>📌 Job Tracker Dashboard</h1>
+  <form id="jobForm">
+    <input type="text" id="company" placeholder="Company Name" required />
+    <input type="text" id="position" placeholder="Position" required />
+    <input type="date" id="appliedDate" required />
+    <input type="text" id="jobDescription" required  placeholder="jobDescription"/>
+
+    <select id="status">
+      <option value="Applied">Applied</option>
+      <option value="Interviewing">Interviewing</option>
+      <option value="Rejected">Rejected</option>
+      <option value="Offered">Offered</option>
+    </select>
+
+    <textarea id="notes" placeholder="Notes"></textarea>
+    <button type="submit">➕ Add Job</button>
+  </form>
+
+  <hr/>
+
+  <div id="jobsContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+.resume {
+
+    width: 100%;
+    height: 100%;
+
+}
+
+.resume .container_1 {
+
+    width: 70%;
+    height: 150px;
+    color: black;
+    margin: 30px auto;
+    border-radius: 16px;
+    background-color: rgb(245, 243, 243);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.resume .container_1 .title_1 {
+
+    font-size: 32px;
+}
+
+.resume .container_1 .parent_1 {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume .container_1 .parent_1 button {
+
+    width: 140px;
+    height: 30px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    border-style: none;
+    transition: 0.8s all;
+    border-radius: 0px 4px 4px 0px;
+    background-color: rgb(16, 16, 16);
+}
+
+.resume .container_1 .parent_1 button:hover {
+
+    color: black;
+    font-size: 14px;
+    border: 1px solid black;
+    background-color: white;
+
+    border-left: none;
+}
+
+.resume .container_1 .parent_1 input {
+
+    width: auto;
+    height: 30px;
+    padding: 4px;
+    color: black;
+    border-radius: 4px 0px 0px 4px;
+    background-color: rgb(201, 201, 201);
+}
+
+.resume .container_1 input:hover {
+
+    background-color: rgb(172, 170, 170);
+}
+
+.checkResult {
+
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    color: black;
+}
+
+.checkResult .container_1 {
+
+    width: 90%;
+    height: 100%;
+    margin: 30px auto;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.checkResult .parent_1 {
+
+    width: 100%;
+    height: 80px;
+    color: black;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.checkResult .parent_1 h1 {
+
+    font-size: 30px;
+
+    display: flex;
+    gap: 20px;
+}
+
+.checkResult .parent_2,
+.checkResult .parent_3,
+.checkResult .parent_4 {
+
+    width: 100%;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    gap: 10px;
+}
+
+.checkResult .parent_2 h3,
+.checkResult .parent_3 h3,
+.checkResult .parent_4 h3 {
+
+    font-size: 28px;
+}
+
+.checkResult .parent_2 ul {
+
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    list-style-position: inside;
+    background-color: rgb(198, 198, 198);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.checkResult .parent_2 ul li,
+.checkResult .parent_3 div div,
+.checkResult .parent_4 div div {
+
+    font-size: 14px;
+}
+
+.checkResult .parent_3 div div,
+.checkResult .parent_4 div div {
+
+    background-color: rgb(198, 198, 198);
+}
+
+.checkResult .parent_5{
+
+    width: 180px;
+    height: 45px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkResult .parent_5 button{
+
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-size: 18px;
+    border-style: none;
+    border-radius: 8px;
+    background-color: black;
+}
+ */

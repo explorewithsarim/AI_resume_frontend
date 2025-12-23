@@ -1,0 +1,84 @@
+bg-color started
+
+:root {
+
+    --bg-dark: #121212;
+    --bg-dark-gray: #333333;
+    --bg-black: rgb(33, 31, 32);
+    --bg-white: #fbfbfb;
+    --bg-blue: #6851ff;
+    --bg-gray: #BFBFBF;
+
+}
+
+.dark-gray {
+    background-color: var(--bg-dark-gray);
+}
+
+.bg-blue {
+    background-color: var(--bg-blue);
+}
+
+.bg-gray {
+    background-color: var(--bg-gray);
+}
+
+.bg-white {
+    background-color: var(--bg-white);
+}
+
+.bg-dark {
+    background-color: var(--bg-dark);
+}
+
+
+:root {
+
+    --color-dark: #121212;
+    --color-black: black;
+    --color-dark-gray: #333333;
+    --color-black: rgb(33, 31, 32);
+    --color-white: #fbfbfb;
+    --color-blue: rgb(114, 139, 173);
+    --color-dark-blue: #6851ff;
+    --color-gray: #BFBFBF;
+}
+
+.color-dark-blue {
+    color: var(--color-dark-blue);
+}
+
+.color-black {
+    color: var(--color-black);
+}
+
+.color-dark-gray {
+    color: var(--color-dark-gray);
+}
+
+.color-blue {
+    color: var(--color-blue);
+}
+
+.color-gray {
+    color: var(--color-gray);
+}
+
+.color-dark {
+    color: var(--color-dark);
+}
+
+.color-white {
+    color: var(--color-white);
+}
+
+
+
+#z-1 {
+    z-index: 1000 !important;
+}
+
+#z-0 {
+    z-index: -1000 !important;
+}
+

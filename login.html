@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/utility.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script> -->
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <header>
+
+
+        <div class="parnet_2" onclick="goSignUP(event)">
+
+            <button>Sign Up</button>
+
+        </div>
+
+    </header>
+
+    <div class="container_1">
+
+        <form onsubmit="login(event)">
+
+            <h1>Sign In</h1>
+
+            <div class="parent_1">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Enter your Email">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Enter your Password"
+                    autocomplete="new-password">
+
+            </div>
+
+            <input type="submit" class="signUp" value="Login">
+
+        </form>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

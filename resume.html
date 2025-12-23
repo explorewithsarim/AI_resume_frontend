@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="./styles/modern.css" />
+    <link rel="stylesheet" href="./styles/utility.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <main class="resume">
+      <div class="container_1">
+        <h2 class="title_1">AI Resume Analyzer</h2>
+
+        <div class="parent_1">
+          <input
+            type="file"
+            id="fileResume"
+            accept="application/pdf"
+            class="input_1"
+          />
+          <button onclick="resume()">Upload & Analyze</button>
+        </div>
+      </div>
+    </main>
+
+    <div class="checkResult" >
+      <div class="container_1">
+        <div class="parent_1">
+          <h1 class="head_1">Resume Score: <span id="resumeScore"></span></h1>
+          <h1 class="head_2">ATS Score: <span id="atsScore"></span></h1>
+        </div>
+
+        <div class="parent_2">
+          <h3>Missing Skills:</h3>
+          <ul id="skillsList"></ul>
+        </div>
+
+        <div class="parent_3">
+          <h3>Suggestions:</h3>
+          <div id="suggestionsContainer"></div>
+        </div>
+
+        <div class="parent_4">
+          <h3>Improved Resume:</h3>
+          <div id="resumeContainer"></div>
+
+          <div
+            id="pdfContainer"
+            style="
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 800px;
+              background: white;
+              color: black;
+              padding: 30px;
+              z-index: -1;
+              white-space: pre-wrap;
+              font-family: Arial, sans-serif;
+              font-size: 14px;
+            "
+          ></div>
+        </div>
+
+        <div class="parent_5">
+          <button onclick="saveCVData()">Save</button>
+          <button onclick="download()">Download</button>
+          <button onclick="window.location.href = 'jobs.html'">Add Job</button>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/1de706ad7b.js"
+      crossorigin="anonymous"
+    ></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
