@@ -1,8 +1,8 @@
-const signupForm = document.getElementById("signupForm");
+const API_URL = "https://airesumebackend-production.up.railway.app";
+const token = localStorage.getItem("token");
 
-if (signupForm) {
-  signupForm.addEventListener("submit", signUp);
-}
+const signupForm = document.getElementById("signupForm");
+if (signupForm) signupForm.addEventListener("submit", signUp);
 
 async function signUp(e) {
   e.preventDefault();
@@ -12,86 +12,64 @@ async function signUp(e) {
   const password = document.getElementById("password").value.trim();
 
   if (!name || !email || !password) {
-    Swal.fire({
-      icon: "error",
-      title: "Oops!",
-      text: "All Fields Are Required",
-    });
-
+    Swal.fire("Error", "All fields are required", "error");
     return;
   }
 
   try {
-    const res = await axios.post(
-      "http://localhost:3000/api/signup",
-      { name, email, password },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const res = await axios.post(`${API_URL}/api/signup`, {
+      name,
+      email,
+      password,
+    });
 
-    console.log("RESPONSE:", res);
-
-    alert(res.data.message);
+    Swal.fire("Success", res.data.message, "success");
     window.location.href = "login.html";
-  } catch (error) {
-    console.log(error);
 
-    if (error.response) {
-      alert(error.response.data.message);
-    } else {
-      alert("Server not responding");
-    }
+  } catch (err) {
+    Swal.fire(
+      "Error",
+      err.response?.data?.message || "Signup failed",
+      "error"
+    );
   }
 }
 
 async function login(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (!email || !password) {
+    Swal.fire("Error", "All fields required", "error");
+    return;
+  }
+
   try {
-    e.preventDefault();
+    const res = await axios.post(`${API_URL}/api/login`, {
+      email,
+      password,
+    });
 
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-
-    if (email === "" || password === "") {
-      alert("⚠️ Please fill in all fields before submitting!");
-      return;
-    } else if (email.indexOf("@gmail.com") === -1) {
-      alert("Please enter a valid email address!");
-      return;
-    }
-
-    const res = await axios.post(
-      "http://localhost:3000/api/login",
-
-      { email, password }
-    );
     localStorage.setItem("token", res.data.token);
 
-    let data = res.data;
-    console.log(data);
+    Swal.fire("Success", "Login successful", "success");
+    window.location.href = "jobs.html";
 
-    if (data.status === 404) {
-      alert(data.message);
-      return;
-    }
-
-    if (data.status === 401) {
-      alert(data.message);
-      return;
-    }
-
-    if (data.status === 200) {
-      alert(data.message);
-      window.location.href = "resume.html";
-      return;
-    }
   } catch (err) {
-    console.log(err);
-    alert("Not working");
+    Swal.fire(
+      "Error",
+      err.response?.data?.message || "Login failed",
+      "error"
+    );
   }
 }
+if (!token) {
+  alert("Login first!");
+  window.location.href = "login.html";
+}
+
 function goLogin(e) {
   e.preventDefault();
   window.location.href = "login.html";
@@ -231,11 +209,7 @@ async function download() {
 }
 const jobForm = document.getElementById("jobForm");
 jobForm.addEventListener("submit", addJob);
-const token = localStorage.getItem("token");
-if (!token) {
-  alert("Login first!");
-  window.location.href = "login.html";
-}
+
 async function addJob(e) {
   e.preventDefault();
 
@@ -249,38 +223,45 @@ async function addJob(e) {
   };
 
   try {
-    const res = await axios.post("http://localhost:3000/api/jobs", jobData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await axios.post(
+      `${API_URL}/api/jobs`,
+      jobData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
-    alert(res.data.message || "Job added");
+    Swal.fire("Success", "Job added", "success");
     jobForm.reset();
     getJobs();
+
   } catch (err) {
-    console.log(err);
-    alert(err.response?.data?.message || "Add failed");
+    Swal.fire(
+      "Error",
+      err.response?.data?.message || "Add failed",
+      "error"
+    );
   }
 }
 
-// function renderJobs(jobs) {
-//   const div = document.getElementById("jobs");
-//   div.innerHTML = "";
+async function getJobs() {
+  try {
+    const res = await axios.get(`${API_URL}/api/jobs`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-//   jobs.forEach(job => {
-//     div.innerHTML += `
-//       <div class="job">
-//         <h3>${job.company} - ${job.position}</h3>
-//         <p>Status: <b>${job.status}</b></p>
-//         <p>${job.jobDescription || ""}</p>
-//         <button onclick="updateJob('${job._id}')">Update</button>
-//         <button onclick="deleteJob('${job._id}')">Delete</button>
-//       </div>
-//     `;
-//   });
-// }
+    renderJobs(res.data.jobs);
+
+  } catch (err) {
+    Swal.fire("Error", "Failed to fetch jobs", "error");
+  }
+}
+getJobs();
+
 
 function getStatusIcon(status) {
   if (status === "Applied") return "📨";
@@ -327,44 +308,26 @@ function renderJobs(jobs) {
   });
 }
 
-async function getJobs() {
-  console.log("TOKEN:", token);
-
-  try {
-    const res = await axios.get("http://localhost:3000/api/jobs/", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    renderJobs(res.data.jobs);
-  } catch (err) {
-    console.error(err);
-    alert("Failed to fetch jobs");
-  }
-}
-
-getJobs();
 
 async function updateJob(id) {
   const newStatus = document.getElementById(`status-${id}`).value;
 
   try {
     await axios.put(
-      `http://localhost:3000/api/jobs/${id}`,
+      `${API_URL}/api/jobs/${id}`,
       { status: newStatus },
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
         },
       }
     );
 
-    alert("Job updated successfully");
+    Swal.fire("Updated", "Job updated", "success");
     getJobs();
+
   } catch (err) {
-    alert("Update failed");
+    Swal.fire("Error", "Update failed", "error");
   }
 }
 
@@ -372,15 +335,17 @@ async function deleteJob(id) {
   if (!confirm("Delete this job?")) return;
 
   try {
-    await axios.delete(`http://localhost:3000/api/jobs/${id}`, {
+    await axios.delete(`${API_URL}/api/jobs/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
-    alert("Job deleted");
+    Swal.fire("Deleted", "Job removed", "success");
     getJobs();
+
   } catch (err) {
-    alert("Delete failed");
+    Swal.fire("Error", "Delete failed", "error");
   }
 }
+
