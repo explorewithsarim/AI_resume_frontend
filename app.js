@@ -18,6 +18,7 @@ async function signUp(e) {
 
   try {
     const res = await axios.post(`${API_URL}/api/signup`, {
+    // const res = await axios.post(`http://localhost:3000/api/signup`, {
       name,
       email,
       password,
@@ -35,6 +36,9 @@ async function signUp(e) {
   }
 }
 
+
+
+
 async function login(e) {
   e.preventDefault();
 
@@ -48,6 +52,7 @@ async function login(e) {
 
   try {
     const res = await axios.post(`${API_URL}/api/login`, {
+    // const res = await axios.post(`http://localhost:3000/api/login`, {
       email,
       password,
     });
@@ -115,7 +120,7 @@ async function resume() {
     const skillsList = document.getElementById("skillsList");
     skillsList.innerHTML = "";
     parsed["Missing Skills"].forEach((skill) => {
-      skill = skill.replace(/\*/g, ""); // remove stars
+      skill = skill.replace(/\*/g, ""); 
       const li = document.createElement("li");
       li.textContent = skill;
       skillsList.appendChild(li);
@@ -224,7 +229,8 @@ async function addJob(e) {
 
   try {
     const res = await axios.post(
-      `${API_URL}/api/jobs`,
+      // `${API_URL}/api/jobs`,
+      `http://localhost:3000/api/jobs`,
       jobData,
       {
         headers: {
@@ -248,7 +254,8 @@ async function addJob(e) {
 
 async function getJobs() {
   try {
-    const res = await axios.get(`${API_URL}/api/jobs`, {
+    // const res = await axios.get(`${API_URL}/api/jobs`, {
+    const res = await axios.get(`http://localhost:3000/api/jobs`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -314,7 +321,8 @@ async function updateJob(id) {
 
   try {
     await axios.put(
-      `${API_URL}/api/jobs/${id}`,
+      // `${API_URL}/api/jobs/${id}`,
+      `http://localhost:3000/api/jobs/${id}`,
       { status: newStatus },
       {
         headers: {
@@ -335,7 +343,8 @@ async function deleteJob(id) {
   if (!confirm("Delete this job?")) return;
 
   try {
-    await axios.delete(`${API_URL}/api/jobs/${id}`, {
+    // await axios.delete(`${API_URL}/api/jobs/${id}`, {
+    await axios.delete(`http://localhost:3000/api/jobs/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

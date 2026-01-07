@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid black; */
 }
 
 body {
@@ -10,7 +9,6 @@ body {
   background-color: rgb(233, 227, 227);
   color: var(--color-white);
 }
-/* --- RESET --- */
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +21,6 @@ body {
   min-height: 100vh;
 }
 
-/* --- HEADER --- */
 .header {
   width: 100%;
   padding: 15px 40px;
@@ -343,24 +340,7 @@ input::placeholder {
   line-height: 1.6;
 }
 
-/* 
-#resumeContainer {
-  background: rgba(255, 255, 255, 0.12);
-  padding: 15px;
-  border-radius: 12px;
-  white-space: pre-wrap;
-  color: #eaeaea;
-  font-size: 18px;
-}
 
-.pdf-mode {
-  background: #ffffff !important;
-  color: #000000 !important;
-}
-
-.pdf-mode * {
-  color: #000000 !important;
-} */
 
 .parent_5 {
   display: flex;
@@ -411,19 +391,14 @@ input::placeholder {
   }
 }
 
-/* ---------------------------------- resume ended ------------------------- */
 
 @media (max-width: 768px) {
-  /* ---------------------------------- index SignUp started ------------------------- */
 
   .container_1 form {
     width: 80%;
     gap: 20px;
   }
 
-  /* ---------------------------------- index SignUp ended ------------------------- */
-
-  /* ---------------------------------- Resume started ------------------------- */
 
   .resume .container_1 {
     width: 95%;
@@ -450,29 +425,25 @@ input::placeholder {
     gap: 0;
   }
 
-  /* ---------------------------------- Resume ended ------------------------- */
 }
 
 @media (max-width: 425px) {
-  /* ---------------------------------- index SignUp started ------------------------- */
 
-  /* ---------------------------------- header SignUp started ------------------------- */
 
   header {
     padding: 0px;
     justify-content: space-around;
   }
 
-  header .parnet_2 {
+  header .parent_2 {
     width: 80px;
     height: 40px;
   }
 
-  header .parnet_2 button {
+  header .parent_2 button {
     font-size: 14px;
   }
 
-  /* ---------------------------------- header SignUp started ------------------------- */
 
   .container_1 form {
     width: 96%;
@@ -482,9 +453,7 @@ input::placeholder {
     width: 100%;
   }
 
-  /* ---------------------------------- index SignUp ended ------------------------- */
 
-  /* ---------------------------------- Resume started ------------------------- */
 
   .resume .container_1 {
     height: 200px;
@@ -500,7 +469,6 @@ input::placeholder {
     gap: 20px;
   }
 
-  /* ---------------------------------- resume ended ------------------------- */
 }
 
 header {
@@ -515,12 +483,12 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.parnet_1 img {
+.parent_1 img {
   width: 120px;
   filter: drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.3));
 }
 
-.parnet_2 button {
+.parent_2 button {
   padding: 10px 24px;
   background: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -532,13 +500,11 @@ header {
   transition: 0.3s ease;
 }
 
-.parnet_2 button:hover {
+.parent_2 button:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* ==========================
-        FORM CONTAINER
-========================== */
+
 .container_1 {
   width: 100%;
   display: flex;
@@ -546,9 +512,7 @@ header {
   margin-top: 70px;
 }
 
-/* ==========================
-        FORM BOX
-========================== */
+
 form {
   width: 100%;
   max-width: 420px;
@@ -571,9 +535,7 @@ form h1 {
   font-weight: 600;
 }
 
-/* ==========================
-        INPUT GROUP
-========================== */
+
 .parent_1 {
   display: flex;
   flex-direction: column;
@@ -605,9 +567,7 @@ form h1 {
   background: rgba(255, 255, 255, 0.28);
 }
 
-/* ==========================
-        SUBMIT BUTTON
-========================== */
+
 .signUp {
   width: 100%;
   padding: 14px;
@@ -642,15 +602,12 @@ form h1 {
   }
 }
 
-/* ==========================
-        RESPONSIVE
-========================== */
 @media (max-width: 500px) {
   header {
     padding: 12px 20px;
   }
 
-  .parnet_1 img {
+  .parent_1 img {
     width: 90px;
   }
 
